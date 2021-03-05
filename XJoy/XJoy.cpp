@@ -478,10 +478,10 @@ void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
           left_buttons = left_buttons | XUSB_GAMEPAD_DPAD_RIGHT;
           break;
         case L_DPAD_SL:
-          left_buttons = left_buttons | XUSB_GAMEPAD_X;
+          //left_buttons = left_buttons | XUSB_GAMEPAD_X;
           break;
         case L_DPAD_SR:
-          left_buttons = left_buttons | XUSB_GAMEPAD_A;
+          //left_buttons = left_buttons | XUSB_GAMEPAD_A;
           break;
       }
       break;
@@ -618,10 +618,10 @@ void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
           right_buttons = right_buttons | XUSB_GAMEPAD_Y;
           break;
         case R_BUT_SL:
-          right_buttons = right_buttons | XUSB_GAMEPAD_B;
+          // right_buttons = right_buttons | XUSB_GAMEPAD_B;
           break;
         case R_BUT_SR:
-          right_buttons = right_buttons | XUSB_GAMEPAD_Y;
+          // right_buttons = right_buttons | XUSB_GAMEPAD_Y;
           break;
       }
       break;
