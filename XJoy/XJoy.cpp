@@ -537,7 +537,7 @@ void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
           left_buttons = left_buttons | XUSB_GAMEPAD_BACK;
           break;
         case L_MINUS:
-          left_buttons = left_buttons | XUSB_GAMEPAD_BACK;
+          left_buttons = left_buttons | XUSB_GAMEPAD_GUIDE;
           break;
         case L_STICK:
           left_buttons = left_buttons | XUSB_GAMEPAD_LEFT_THUMB;
@@ -596,7 +596,7 @@ void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
         right_buttons = right_buttons | XUSB_GAMEPAD_START;
         break;
       case R_PLUS:
-        right_buttons = right_buttons | XUSB_GAMEPAD_START;
+        right_buttons = right_buttons | XUSB_GAMEPAD_GUIDE;
         break;
       case R_STICK:
         right_buttons = right_buttons | XUSB_GAMEPAD_RIGHT_THUMB;
