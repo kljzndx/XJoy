@@ -29,6 +29,8 @@ u8 global_counter[2] = { 0,0 };
 
 bool is_quiet_model = false;
 bool is_joycon_layout = false;
+bool is_disable_sl_sr_buttons = false;
+
 PVIGEM_CLIENT client = vigem_alloc();
 hid_device *left_joycon = NULL;
 hid_device *right_joycon = NULL;
@@ -480,10 +482,12 @@ void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
           left_buttons = left_buttons | XUSB_GAMEPAD_DPAD_RIGHT;
           break;
         case L_DPAD_SL:
-          //left_buttons = left_buttons | XUSB_GAMEPAD_X;
+          if (!is_disable_sl_sr_buttons)
+            left_buttons = left_buttons | XUSB_GAMEPAD_X;
           break;
         case L_DPAD_SR:
-          //left_buttons = left_buttons | XUSB_GAMEPAD_A;
+          if (!is_disable_sl_sr_buttons)
+            left_buttons = left_buttons | XUSB_GAMEPAD_A;
           break;
       }
       break;
@@ -620,10 +624,12 @@ void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
           right_buttons = right_buttons | (is_joycon_layout ? XUSB_GAMEPAD_Y : XUSB_GAMEPAD_X);
           break;
         case R_BUT_SL:
-          // right_buttons = right_buttons | XUSB_GAMEPAD_B;
+          if (!is_disable_sl_sr_buttons)
+            right_buttons = right_buttons | XUSB_GAMEPAD_B;
           break;
         case R_BUT_SR:
-          // right_buttons = right_buttons | XUSB_GAMEPAD_Y;
+          if (!is_disable_sl_sr_buttons)
+            right_buttons = right_buttons | XUSB_GAMEPAD_Y;
           break;
       }
       break;
@@ -779,9 +785,11 @@ int main(int argc, char* argv[]) {
       is_quiet_model = true;
     else if (argv[i] == "--joycon-layout")
       is_joycon_layout = true;
+    else if (argv[i] == "--disable-sl-sr-buttons")
+      is_disable_sl_sr_buttons = true;
     else
     {
-      std::cout << "xjoy.exe [-q|--quiet|--joycon-layout]";
+      std::cout << "xjoy.exe [-q|--quiet|--joycon-layout|--disable-sl-sr-buttons]";
       return 1;
     }
   }
