@@ -795,7 +795,7 @@ int main(int argc, char* argv[]) {
   }
   
   signal(SIGINT, exit_handler);
-  std::cout << "XJoy v0.2.1" << std::endl << std::endl;
+  std::cout << "XJoy v0.3.0" << std::endl << std::endl;
 
   initialize_xbox();
   hid_init();
