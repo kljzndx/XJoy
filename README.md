@@ -9,11 +9,6 @@ XJoy is a free product that I work on in my free time, so any contributions are 
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8DTF7NWTZX7ZJ)
 
-
-## Note
-Currently the newer versions containing analog support appear to have some issues. I recommend using the last version
-before analog support was introduced [v0.1.8](https://github.com/sam0x17/XJoy/releases/tag/v0.1.8).
-
 ## Installation
 
 1. [Install the ViGEm Bus Driver](https://github.com/ViGEm/ViGEmBus/releases/tag/v1.16.112) (install all requirements as well)
@@ -54,45 +49,42 @@ initializing threads...
  => successfully connected to right Joy-Con
 ```
 
+## Command template
+
+```
+XJoy.exe [-q|--quiet|--joycon-layout|--disable-sl-sr-buttons]
+```
+
 ## Customization
 
 Right now all buttons are hard-coded to their "default" xbox equivalents. If you wish to
-customize these mappings, feel free to modify the `process_button` method in XJoy.cpp and
-recompile yourself. I plan to add support for a configuration file and maybe a GUI in later
-versions. The default mappings are shown below:
+customize these mappings, feel free to modify the `process_button` method in XJoy.cpp. I
+plan to add support for a configuration file and maybe a GUI in later versions. The default
+mappings are shown below:
 
 
-| Joy-Con Button     | Xbox Button    |
-|--------------------|----------------|
-| A                  | B              |
-| B                  | A              |
-| X                  | Y              |
-| Y                  | X              |
-| Left Trigger       | Left Trigger   |
-| Right Trigger      | Right Trigger  |
-| Left Shoulder      | Left Shoulder  |
-| Right Shoulder     | Right Shoulder |
-| D-PAD              | D-PAD          |
-| Left Analog        | Left Analog    |
-| Right Analog       | Right Analog   |
-| Left Stick         | Left Thumb     |
-| Right Stick        | Right Thumb    |
-| Home               | Start          |
-| Capture            | Back           |
-| Plus               | Start          |
-| Minus              | Back           |
+| Joy-Con Button | Xbox Button                   |
+| -------------- | ----------------------------- |
+| A              | B                             |
+| B              | A                             |
+| X              | Y                             |
+| Y              | X                             |
+| Left Trigger   | Left Trigger                  |
+| Right Trigger  | Right Trigger                 |
+| Left Shoulder  | Left Shoulder                 |
+| Right Shoulder | Right Shoulder                |
+| D-PAD          | D-PAD                         |
+| Left Analog    | Left Analog                   |
+| Right Analog   | Right Analog                  |
+| Left Stick     | Left Thumb                    |
+| Right Stick    | Right Thumb                   |
+| Home           | Start                         |
+| Capture        | Back                          |
+| Plus           | Home (the "xbox logo" button) |
+| Minus          | Home (the "xbox logo" button) |
 
 ## Building
 
 If you wish to build XJoy yourself, simply install the ViGEm Bus Driver as outlined in the
 installation steps, open the XJoy.sln file in Visual Studio 2017, and build. Everything
-should work out of the box but if it does not feel free to submit an issue. Note that at
-least on my end it _seems_ to be working in Visual Studio 2019 as well, which is good.
-
-## Contributing
-1. create a fork for your feature/bugfix/whatever
-2. make your additions/modifications, following our [C++ Coding Style Guidelines](style_guide.md)
-3. test your changes, doing your best to ensure you aren't introducing any environment-specific
-   behavior that may cause issues for users without your exact setup. XJoy's target audience is
-   freshly installed Windows 10 users who have followed the ViGEm installation instructions.
-4. submit a pull request
+should work out of the box but if it does not feel free to submit an issue.
