@@ -789,7 +789,7 @@ int main(int argc, char* argv[]) {
       is_disable_sl_sr_buttons = true;
     else
     {
-      std::cout << "xjoy.exe [-q|--quiet|--joycon-layout|--disable-sl-sr-buttons]";
+      std::cout << "XJoy.exe [-q|--quiet|--joycon-layout|--disable-sl-sr-buttons]";
       return 1;
     }
   }
