@@ -28,6 +28,7 @@ u16 stick_cal[14];
 u8 global_counter[2] = { 0,0 };
 
 bool is_quiet_model = false;
+bool is_joycon_layout = false;
 PVIGEM_CLIENT client = vigem_alloc();
 hid_device *left_joycon = NULL;
 hid_device *right_joycon = NULL;
@@ -607,16 +608,16 @@ void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
     case RIGHT_BUTTONS:
       switch(button) {
         case R_BUT_A:
-          right_buttons = right_buttons | XUSB_GAMEPAD_A;
+          right_buttons = right_buttons | (is_joycon_layout ? XUSB_GAMEPAD_A : XUSB_GAMEPAD_B);
           break;
         case R_BUT_B:
-          right_buttons = right_buttons | XUSB_GAMEPAD_B;
+          right_buttons = right_buttons | (is_joycon_layout ? XUSB_GAMEPAD_B : XUSB_GAMEPAD_A);
           break;
         case R_BUT_X:
-          right_buttons = right_buttons | XUSB_GAMEPAD_X;
+          right_buttons = right_buttons | (is_joycon_layout ? XUSB_GAMEPAD_X : XUSB_GAMEPAD_Y);
           break;
         case R_BUT_Y:
-          right_buttons = right_buttons | XUSB_GAMEPAD_Y;
+          right_buttons = right_buttons | (is_joycon_layout ? XUSB_GAMEPAD_Y : XUSB_GAMEPAD_X);
           break;
         case R_BUT_SL:
           // right_buttons = right_buttons | XUSB_GAMEPAD_B;
@@ -776,9 +777,11 @@ int main(int argc, char* argv[]) {
   {
     if (argv[i] == "-q" || argv[i] == "--quiet")
       is_quiet_model = true;
+    else if (argv[i] == "--joycon-layout")
+      is_joycon_layout = true;
     else
     {
-      std::cout << "xjoy.exe [-q|--quiet]";
+      std::cout << "xjoy.exe [-q|--quiet|--joycon-layout]";
       return 1;
     }
   }
