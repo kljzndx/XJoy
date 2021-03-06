@@ -27,6 +27,7 @@ u8 data[DATA_BUFFER_SIZE];
 u16 stick_cal[14];
 u8 global_counter[2] = { 0,0 };
 
+bool is_quiet_model = false;
 PVIGEM_CLIENT client = vigem_alloc();
 hid_device *left_joycon = NULL;
 hid_device *right_joycon = NULL;
@@ -443,8 +444,8 @@ void process_stick(bool is_left, uint8_t a, uint8_t b, uint8_t c) {
 }
 
 void process_button(JOYCON_REGION region, JOYCON_BUTTON button) {
-  if(!((region == LEFT_ANALOG && button == L_ANALOG_NONE) || (region == RIGHT_ANALOG && button == R_ANALOG_NONE)))
-  std::cout << joycon_button_to_string(region, button) << " ";
+  if(!((region == LEFT_ANALOG && button == L_ANALOG_NONE) || (region == RIGHT_ANALOG && button == R_ANALOG_NONE)) || !is_quiet_model)
+    std::cout << joycon_button_to_string(region, button) << " ";
   auto got = button_mappings.find(button);
   if(got != button_mappings.end()) {
     XUSB_BUTTON target = got->second;
@@ -770,9 +771,20 @@ void exit_handler(int signum) {
   exit(signum);
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+  for (int i = 1; i < argc; i++)
+  {
+    if (argv[i] == "-q" || argv[i] == "--quiet")
+      is_quiet_model = true;
+    else
+    {
+      std::cout << "xjoy.exe [-q|--quiet]";
+      return 1;
+    }
+  }
+  
   signal(SIGINT, exit_handler);
-  std::cout << "XJoy v0.2.0" << std::endl << std::endl;
+  std::cout << "XJoy v0.2.1" << std::endl << std::endl;
 
   initialize_xbox();
   hid_init();
