@@ -784,13 +784,13 @@ int main(int argc, char* argv[]) {
     char* argment = argv[i];
     if (strcmp(argment, "-q") == 0 || strcmp(argment, "-queit") == 0)
       is_quiet_model = true;
-    else if (strcmp(argment, "--joycon-layout") == 0)
+    else if (strcmp(argment, "--joycon-abxy-layout") == 0)
       is_joycon_layout = true;
     else if (strcmp(argment, "--disable-sl-sr-buttons") == 0)
       is_disable_sl_sr_buttons = true;
     else
     {
-      std::cout << "XJoy.exe [-q|--quiet|--joycon-layout|--disable-sl-sr-buttons]";
+      std::cout << "XJoy.exe [-q|--quiet|--joycon-abxy-layout|--disable-sl-sr-buttons]";
       return 1;
     }
   }
