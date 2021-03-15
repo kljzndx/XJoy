@@ -54,7 +54,7 @@ initializing threads...
 ## Command template
 
 ```
-XJoy.exe [-q|--quiet|--joycon-layout|--disable-sl-sr-buttons]
+XJoy.exe [-q|--quiet|--joycon-abxy-layout|--disable-sl-sr-buttons]
 ```
 
 ## Customization
