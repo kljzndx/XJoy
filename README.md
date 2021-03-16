@@ -65,25 +65,29 @@ plan to add support for a configuration file and maybe a GUI in later versions. 
 mappings are shown below:
 
 
-| Joy-Con Button | Xbox Button                   |
-| -------------- | ----------------------------- |
-| A              | B                             |
-| B              | A                             |
-| X              | Y                             |
-| Y              | X                             |
-| Left Trigger   | Left Trigger                  |
-| Right Trigger  | Right Trigger                 |
-| Left Shoulder  | Left Shoulder                 |
-| Right Shoulder | Right Shoulder                |
-| D-PAD          | D-PAD                         |
-| Left Analog    | Left Analog                   |
-| Right Analog   | Right Analog                  |
-| Left Stick     | Left Thumb                    |
-| Right Stick    | Right Thumb                   |
-| Home           | Start                         |
-| Capture        | Back                          |
-| Plus           | Home (the "xbox logo" button) |
-| Minus          | Home (the "xbox logo" button) |
+| Joy-Con Button         | Xbox Button                   |
+| ---------------------- | ----------------------------- |
+| A                      | B                             |
+| B                      | A                             |
+| X                      | Y                             |
+| Y                      | X                             |
+| Left Trigger           | Left Trigger                  |
+| Right Trigger          | Right Trigger                 |
+| Left Shoulder          | Left Shoulder                 |
+| Right Shoulder         | Right Shoulder                |
+| D-PAD                  | D-PAD                         |
+| Left Analog            | Left Analog                   |
+| Right Analog           | Right Analog                  |
+| Left Stick             | Left Thumb                    |
+| Right Stick            | Right Thumb                   |
+| Home                   | Start                         |
+| Capture                | Back                          |
+| Plus                   | Home (the "xbox logo" button) |
+| Minus                  | Home (the "xbox logo" button) |
+| SL on left controller  | A                             |
+| SR on left controller  | X                             |
+| SL on right controller | B                             |
+| SR on right controller | Y                             |
 
 ## Building
 
