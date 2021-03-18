@@ -782,7 +782,7 @@ int main(int argc, char* argv[]) {
   for (int i = 1; i < argc; i++)
   {
     char* argment = argv[i];
-    if (strcmp(argment, "-q") == 0 || strcmp(argment, "-queit") == 0)
+    if (strcmp(argment, "-q") == 0 || strcmp(argment, "-quiet") == 0)
       is_quiet_model = true;
     else if (strcmp(argment, "--joycon-abxy-layout") == 0)
       is_joycon_layout = true;
